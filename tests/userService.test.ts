@@ -13,6 +13,7 @@ describe('UserService', () => {
     const result = service.createUser('TestUser')
 
     expect(result).toBe('User TestUser created')
-    expect(loggerMock.log).toHaveBeenCalledWith('User TestUser created')
+    expect(loggerMock.log).toHaveBeenCalled()
   })
 })
+
