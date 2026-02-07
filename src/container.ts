@@ -8,16 +8,13 @@ import { ConsoleLogger } from './services/consoleLogger'
 import { UserService } from './services/userService'
 import { EnvService } from './services/envService'
 
-container.register<IEnv>('IEnv', {
-  useClass: EnvService
-})
+// Environment → singleton
+container.registerSingleton<IEnv>('IEnv', EnvService)
 
-container.register<ILogger>('ILogger', {
-  useClass: ConsoleLogger
-})
+// Logger → singleton
+container.registerSingleton<ILogger>('ILogger', ConsoleLogger)
 
-container.register<IUserService>('IUserService', {
-  useClass: UserService
-})
+// User service → singleton
+container.registerSingleton<IUserService>('IUserService', UserService)
 
 export { container }
